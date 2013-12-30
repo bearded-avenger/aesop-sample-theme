@@ -1,0 +1,39 @@
+/*
+Theme Name: Aesop Sample Theme
+Theme URI: https://github.com/bearded-avenger/aesop-sample-theme
+Description: Sample Wordpress theme with basic implementation of Aesop Core
+Version: 0.1
+Author: Nick Haskins
+Author URI: http://nickhaskins.co
+Github Theme URI: https://github.com/bearded-avenger/aesop-sample-theme
+Tags: dark, light, flexible-width, custom-colors, featured-images, threaded-comments, translation-ready
+license: GPL2
+License URI: http://opensource.org/licenses/gpl-2.0.php
+*/
+
+
+body {
+	margin:0;
+	padding:0;
+}
+
+/*
+* .aesop-content - this class is applied to any component if the user passes 'content' as a width paramater
+* .section-content - this class holds the inner width of the content <p>, and is applied to any container (like pages) that needs to be content width
+*/
+.aesop-content,
+.section-content {
+	width:100%;
+	max-width:800px;
+	margin:0 auto;
+}
+
+/*
+* This is the most important part. We're setting the site width on the <p> element only, so component can be both full width, and content width.
+* You may want to account for h1 - h6 if the user decides to use Tiny MCE for formatting. Your choice
+*/
+.entry-content p {
+	width:100%;
+	max-width:800px;
+	margin:0 auto;
+}

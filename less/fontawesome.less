@@ -1,0 +1,130 @@
+/*!
+ *  Font Awesome 4.0.0
+ *  the iconic font designed for Bootstrap
+ *  ------------------------------------------------------------------------------
+ *  The full suite of pictographic icons, examples, and documentation can be
+ *  found at http://fontawesome.io.  Stay up to date on Twitter at
+ *  http://twitter.com/fontawesome.
+ *
+ *  License
+ *  ------------------------------------------------------------------------------
+ *  - The Font Awesome font is licensed under SIL OFL 1.1 -
+ *    http://scripts.sil.org/OFL
+ *  - Font Awesome CSS, LESS, and SASS files are licensed under MIT License -
+ *    http://opensource.org/licenses/mit-license.html
+ *  - Font Awesome documentation licensed under CC BY 3.0 -
+ *    http://creativecommons.org/licenses/by/3.0/
+ *  - Attribution is no longer required in Font Awesome 3.0, but much appreciated:
+ *    "Font Awesome by Dave Gandy - http://fontawesome.io"
+ *
+ *  Author - Dave Gandy
+ *  ------------------------------------------------------------------------------
+ *  Email: dave@fontawesome.io
+ *  Twitter: http://twitter.com/davegandy
+ *  Work: Lead Product Designer @ Kyruus - http://kyruus.com
+ */
+
+
+@font-face {
+  font-family: 'FontAwesome';
+  src: url('@{fa-font-path}/fontawesome-webfont.eot?v=@{fa-version}');
+  src: url('@{fa-font-path}/fontawesome-webfont.eot?#iefix&v=@{fa-version}') format('embedded-opentype'),
+    url('@{fa-font-path}/fontawesome-webfont.woff?v=@{fa-version}') format('woff'),
+    url('@{fa-font-path}/fontawesome-webfont.ttf?v=@{fa-version}') format('truetype'),
+    url('@{fa-font-path}/fontawesome-webfont.svg?v=@{fa-version}#fontawesomeregular') format('svg');
+//  src: url('@{fa-font-path}/FontAwesome.otf') format('opentype'); // used when developing fonts
+  font-weight: normal;
+  font-style: normal;
+}
+
+@fa-font-path:        "../fonts";
+@fa-css-prefix:       aesopicon;
+@fa-version:          "4.0.0";
+
+.@{fa-css-prefix} {
+  display: inline-block;
+  font-family: FontAwesome;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@fa-var-star: "\f005";
+@fa-var-star-o: "\f006";
+@fa-var-spinner: "\f110";
+
+.@{fa-css-prefix}-spin {
+  -webkit-animation: spin 2s infinite linear;
+  -moz-animation: spin 2s infinite linear;
+  -o-animation: spin 2s infinite linear;
+  animation: spin 2s infinite linear;
+}
+
+@-moz-keyframes spin {
+  0% { -moz-transform: rotate(0deg); }
+  100% { -moz-transform: rotate(359deg); }
+}
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(359deg); }
+}
+@-o-keyframes spin {
+  0% { -o-transform: rotate(0deg); }
+  100% { -o-transform: rotate(359deg); }
+}
+@-ms-keyframes spin {
+  0% { -ms-transform: rotate(0deg); }
+  100% { -ms-transform: rotate(359deg); }
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(359deg); }
+}
+
+.@{fa-css-prefix}-spinner:before { content: @fa-var-spinner; }
+.@{fa-css-prefix}-file-o:before { content: '\f0f6'; }
+.@{fa-css-prefix}-credit-card:before { content: '\f09d'; }
+
+.@{fa-css-prefix}-user:before { content: '\f007'; }
+.@{fa-css-prefix}-key:before { content: '\f084'; }
+.@{fa-css-prefix}-cog:before { content: '\f013'; }
+.@{fa-css-prefix}-dollar:before { content: '\f155'; }
+.@{fa-css-prefix}-share-square-o:before { content: '\f045'; }
+
+.@{fa-css-prefix}-angle-left:before { content: '\f104'; }
+.@{fa-css-prefix}-angle-right:before { content: '\f105'; }
+.@{fa-css-prefix}-angle-up:before { content: '\f106'; }
+.@{fa-css-prefix}-angle-down:before { content: '\f107'; }
+
+.@{fa-css-prefix}-list-ul:before { content: '\f0ca'; }
+.@{fa-css-prefix}-bookmark:before { content: '\f02e'; }
+.@{fa-css-prefix}-info-circle:before { content: '\f05a'; }
+.@{fa-css-prefix}-shopping-cart:before { content: '\f07a'; }
+
+.@{fa-css-prefix}-twitter-square:before { content: '\f081'; }
+.@{fa-css-prefix}-facebook-square:before { content: '\f082'; }
+.@{fa-css-prefix}-pinterest-square:before { content: '\f0d3'; }
+.@{fa-css-prefix}-google-plus-square:before { content: '\f0d4'; }
+
+.@{fa-css-prefix}-twitter:before { content: '\f099'; }
+.@{fa-css-prefix}-facebook:before { content: '\f09a'; }
+.@{fa-css-prefix}-github:before { content: '\f09b'; }
+
+.@{fa-css-prefix}-clock-o:before { content: '\f017'; }
+.@{fa-css-prefix}-cogs:before { content: '\f085'; }
+.@{fa-css-prefix}-bullhorn:before { content: '\f0a1'; }
+
+.@{fa-css-prefix}-comments:before { content: '\f086'; }
+
+.@{fa-css-prefix}-rss:before { content: '\f09e'; }
+
+.@{fa-css-prefix}-search-plus:before { content: '\f00e'; }
+.@{fa-css-prefix}-external-link:before { content:'\f08e'; }
+.@{fa-css-prefix}-home:before { content:'\f015'; }
+
+.@{fa-css-prefix}-star:before { content: @fa-var-star; }
+.@{fa-css-prefix}-star-o:before { content: @fa-var-star-o; }
+.@{fa-css-prefix}-th:before { content: '\f00a'; }
+

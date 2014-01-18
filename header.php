@@ -12,3 +12,9 @@
 
 	</head>
 	<body <?php body_class(); ?>>
+
+		<?php do_action('aesop_inside_body_top');?>
+
+		<header id="aesoptheme-header" itemscope itemtype="http://schema.org/WPHeader" class="clearfix">
+
+		</header>

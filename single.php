@@ -2,10 +2,14 @@
 
 get_header();
 
-	while ( have_posts() ) : the_post();
+	do_action('aesop_single_before');
 
-		get_template_part( 'content', 'single' );
+		while ( have_posts() ) : the_post();
 
-	endwhile;
+			get_template_part( 'content', 'single' );
+
+		endwhile;
+
+	do_action('aesop_single_after');
 
 get_footer();

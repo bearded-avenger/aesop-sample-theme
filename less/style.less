@@ -1,0 +1,801 @@
+// Core variables and mixins
+@import "variables.less";
+@import "mixins.less";
+
+// Reset
+@import "normalize.less";
+@import "print.less";
+
+// Core CSS
+@import "scaffolding.less";
+@import "type.less";
+
+@import "grid.less";
+@import "tables.less";
+@import "forms.less";
+@import 'fontawesome.less';
+@import "buttons.less";
+@import "component-animations.less";
+@import "pagination.less";
+
+// Utility classes
+@import "utilities.less";
+@import "responsive-utilities.less";
+@import 'timeline.less';
+@import 'responsive.less';
+
+.aesop-alt-text {
+    padding:0.25rem 0.75rem;
+    font-size: @font-size-xsmall;
+    font-family: @font-family-sans-serif;
+}
+
+//leafleft maps
+.leaflet-top.leaflet-left {
+    z-index: 0;
+}
+
+// content width class
+.aesop-content {
+    width:100%;
+    max-width:@aesop-width;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+// set content width on article type only
+.aesop-entry-content {
+    margin-top:1300px; //clears cover before js kicks in
+    background:@body-bg;
+    padding-top:4rem;
+    .box-shadow(0 0 8px -2px rgba(0,0,0,0.8));
+
+    p,h1,h2,h3,h4,h5,h6 {
+        .aesop-content;
+    }
+}
+
+.aesop-component-invisible{
+    .opacity(0);
+}
+.aesop-component-visible {
+    .opacity(1.0);
+    .transition(opacity .25s linear);
+}
+
+// content box shadow
+.aesop-chapter-component,
+.aesop-content-component,
+.aesop-parallax-component,
+.aesop-map-component{
+    .box-shadow( 0 0 5px -1px rgba(0,0,0,0.6));
+}
+
+#aesop-loading {
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    position: fixed;
+    display: block;
+    background-color: #fff;
+    z-index: 99;
+    text-align: center;
+}
+
+#aesop-loading i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 999;
+    font-size:4rem;
+}
+
+// cover styles
+.aesop-article-cover-wrap {
+    z-index: -1;
+}
+.aesop-article-chapter-wrap,
+.aesop-article-cover-wrap {
+    width: 100%;
+    top:0;
+
+    // base inner cover
+    .aesop-article-chapter,
+    .aesop-article-cover {
+        position: relative;
+        background-size: 100%; //iphone fix
+        background-size: cover;
+    }
+
+    // cover posted by
+    .aesop-cover-meta {
+        top:5%;
+    }
+
+    // cover posted by and cover title
+    .aesop-cover-title,
+    .aesop-cover-meta {
+        color:white;
+        width:90%;
+        left:10%;
+        position: absolute;
+    }
+
+    // cover styles under default cover
+    &.default-cover {
+
+        .aesop-cover-title{
+            margin:0;
+            padding-bottom:20px;
+            bottom:140px;
+            border-bottom:1px solid white;
+            font-size:@font-size-h1 + 10;
+
+        }
+    }
+
+    // cover styles under block cover
+    &.block-cover {
+        text-align: center;
+        .aesop-cover-title{
+            width:70%;
+            max-width:100%;
+            margin:0 auto;
+            text-align: center;
+            font-size:@font-size-h1 + 10;
+            color:white;
+            text-transform: uppercase;
+            font-family: Impact;
+            left:0;
+            right:0;
+        }
+        .aesop-cover-meta {
+            width:100%;
+            left:0;
+        }
+    }
+
+}
+
+.slabtexted .slabtext{display:-moz-inline-box;display:inline-block;white-space:nowrap}.slabtextinactive .slabtext{display:inline;white-space:normal;font-size:1em !important;letter-spacing:inherit !important;word-spacing:inherit !important;*letter-spacing:0 !important;*word-spacing:0 !important;}.slabtextdone .slabtext{display:block;line-height:0.9;}
+
+//chapter wrap
+.aesop-article-cover-wrap {
+    position: fixed;
+}
+.aesop-article-chapter-wrap {
+    position: relative;
+
+    .aesop-cover-title {
+        max-width: 100%;
+    }
+}
+
+.aesop-chapter-title {
+    position: absolute;
+    left:-10000px
+}
+// share count
+.aesop-share-count {
+    position: absolute;
+    top:5%;
+    right:10%;
+    color:white;
+    font-family:@font-family-sans-serif;
+
+    &:after {
+        content:'\f005';
+        margin-left:5px;
+        font-size:@font-size-small;
+        font-family: FontAwesome;
+    }
+}
+
+
+// story header
+.aesop-story-header {
+    @bg:#222;
+    background:@bg;
+    color:#eaeaea;
+    border-bottom:1px solid rgba(255,255,255,0.25);
+    padding:4px 7px;
+    position: absolute;
+    left:-10000px;
+    .opacity(0);
+
+    &.fixed {
+        position: fixed;
+        width:100%;
+        left:0;
+        right:0;
+        z-index:99;
+        .opacity(100);
+        .transition(opacity .15s linear);
+    }
+
+    .aesop-go-home {
+        display: inline-block;
+        height:37px;
+        width:37px;
+        float: left;
+        text-align: center;
+        color:#eaeaea;
+        margin:-0.5rem 1rem -0.5rem -0.7rem;
+        background:darken(@bg,7);
+        border-right:1px solid lighten(@bg,3);
+        position: relative;
+        z-index:1;
+
+        i {
+            margin-top:1rem;
+            color:lighten(@bg,10);
+        }
+
+        &:hover {
+            background:darken(@bg,7);
+
+            i {
+                color:lighten(@bg,20);
+            }
+        }
+    }
+
+    .aesop-story-title {
+        font-size:@font-size-base;
+        margin:0.35rem 0 0;
+    }
+
+    .aesop-story-shares {
+        float: right;
+        position: relative;
+        z-index: 100; // clears the absolutely positioned chpater nav
+        a {
+            color:inherit;
+            display: inline-block;
+            margin-right:0.25rem;
+
+            &:hover {
+                color:@link-color;
+            }
+        }
+    }
+    .aesop-story-title {
+        float: left;
+    }
+
+    .scroll-nav {
+        top:9px;
+        width:100%;
+        text-align: center;
+        font-size:@font-size-small;
+        color:#eaeaea;
+        letter-spacing: 0.05rem;
+        position: absolute;
+
+        .scroll-nav__list {
+            padding:0;
+            margin:0;
+            line-height:1;
+            .clearfix();
+
+            li {
+                display: inline-block;
+
+                .scroll-nav__link {
+                    color:white;
+                    width: 0;
+                    height: 0;
+                    margin-right:0.75rem;
+                    .opacity(.6);
+                    .transition(opacity .25s ease-in-out);
+
+                }
+
+                &:hover {
+                    a {
+                        .opacity(.8);
+                        .transition(opacity .25s ease-in-out);
+                    }
+                }
+                &.active .scroll-nav__link{
+                    .opacity(1.0);
+                    .transition(opacity .25s ease-in-out);
+                }
+            }
+
+        }
+
+    }
+}
+
+// character
+.aesop-character-component {
+
+    .aesop-character-float {
+        margin: .65rem 0;
+        width:150px;
+        text-align: center;
+
+        .aesop-character-title {
+            vertical-align: top;
+            font-size:@font-size-xsmall;
+            font-family:@font-family-sans-serif;
+            color:@aesop-flip-text;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            display: block;
+            text-align: center;
+            margin:0 0 0.5rem;
+        }
+        // character right
+        &.aesop-character-right {
+            float: right;
+            margin-left:1.75rem;
+        }
+
+        //character center
+        &.aesop-character-center {
+            .aesop-character-name {
+                text-align: center;
+            }
+        }
+
+        //character left
+        &.aesop-character-left {
+            float:left;
+            margin-right:1.75rem;
+        }
+    }
+    .aesop-character-avatar {
+        width: 90%;
+        border-radius:50%;
+    }
+    .aesop-character-cap {
+        font-size:@font-size-xsmall;
+        line-height: @font-size-small;
+        font-family:@font-family-sans-serif;
+        color:@aesop-flip-text;
+        font-style: italic;
+        margin-top:0.8rem;
+        border-top:1px dotted @link-color;
+        padding-top:0.3rem;
+    }
+}
+
+// content component
+.aesop-content-comp-wrap {
+    padding:4rem 3rem;
+}
+
+// stacked parallax
+.aesop-stacked-img {
+    background-attachment: fixed;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width:100%;
+    left:0;
+    top:0;
+    position: relative;
+    overflow: hidden;
+
+    .aesop-stacked-caption {
+        position: absolute;
+        bottom:20px;
+        right:20px;
+        z-index: 0;
+        background: fadeout(@body-bg,10);
+        .aesop-alt-text;
+        .transition(all .75s ease-in-out);
+    }
+}
+
+// parallax sc
+.aesop-parallax-sc-caption-wrap {
+    position: absolute;
+
+    &.bottom-left {
+        bottom:20px;
+        left:25px;
+    }
+
+    &.top-left {
+        top:20px;
+        left:25px;
+    }
+
+    &.top-right {
+        top:20px;
+        right:25px;
+        text-align: right;
+    }
+
+    &.bottom-right {
+        bottom:20px;
+        right:25px;
+        text-align: right;
+    }
+
+    &.bottom-left {
+        bottom:20px;
+        left:25px;
+    }
+
+    .aesop-parallax-sc-caption {
+
+    }
+}
+.aesop-stacked-gallery-wrap.low-index {
+    z-index: -1;
+}
+
+// parallax item
+.aesop-parallax-sc-caption-wrap {
+    background: fadeout(@body-bg,10);
+    .aesop-alt-text;
+    max-width:400px;
+    color:inherit;
+}
+
+// image component
+.aesop-image-component {
+    img{
+        .box-shadow(0 0 6px -1px rgba(0,0,0,0.5));
+    }
+    .swipebox {
+        display: block;
+        &:hover {
+            text-decoration: none;
+        }
+    }
+    .aesop-img-enlarge {
+        margin:0 0 0.5rem;
+    }
+    .aesop-img-enlarge,
+    .aesop-image-component-caption {
+        color:lighten(@text-color,15);
+        font-size:@font-size-xsmall;
+        font-family:@font-family-sans-serif;
+
+    }
+    .aesop-cap-cred,
+    .aesop-img-enlarge {
+        text-transform: uppercase;
+        color:@aesop-flip-text;
+    }
+    .aesop-image-component-caption {
+        margin-top:0.5rem;
+    }
+    .aesop-cap-cred {
+        border-top:1px dotted @link-color;
+        margin-top:0.35rem;
+        padding-top:0.5rem;
+        font-size:@font-size-xsmall - 3;
+        letter-spacing: 0.05em;
+    }
+
+    &:hover {
+        .opacity(0.85);
+        .transition(opacity .25s ease-in-out);
+    }
+    &:active img{
+        box-shadow: none;
+    }
+}
+
+// audio components
+.mejs-container {
+    width:100%;
+    max-width:@aesop-width !important;
+    margin-left:auto;
+    margin-right:auto;
+
+    + p {
+        margin-top:1rem;
+    }
+}
+
+// video components
+.aesop-video-component {
+    .aesop-video-component-caption {
+        .aesop-alt-text;
+    }
+
+}
+.aesop-video-chapter {
+    .aesop-cover-title {
+        z-index: 1;
+    }
+}
+
+// quote components
+.aesop-quote-component {
+    padding:8rem 12rem;
+    position: relative;
+    display: table;
+
+    blockquote {
+        margin-top:0;
+        margin-bottom:0;
+        padding:0;
+        font-size:4rem;
+        border-left:none;
+        display: table-cell;
+        vertical-align: middle;
+        .opacity(0);
+
+        &.aesop-quote-faded {
+            .opacity(1.0);
+            .transition(opacity .35s ease-in-out);
+        }
+
+        &.aesop-component-align-center {
+            text-align: center;
+        }
+    }
+}
+
+// grid gallery
+.aesop-grid-gallery img:hover {
+    .opacity(.75);
+}
+
+// dropcap
+.lead:first-child:first-letter {
+    float: left;
+    font-size: 8rem;
+    line-height: 8rem;
+    padding-top: 4px;
+    padding-right: 16px;
+    padding-left: 3px;
+}
+
+//paging
+.aesop-story-chapters {
+    position: relative;
+}
+.aesop-story-pager {
+    .clearfix();
+    padding:2.5rem 0;
+    background:@body-bg;
+    text-align: center;
+    position: relative;
+    font-size: @font-size-small;
+    font-family: @font-family-sans-serif;
+    a {
+        display: block;
+        color: inherit;
+
+        img {
+            max-width:60px;
+            border-radius:50%;
+        }
+
+        p {
+            text-transform: uppercase;
+            font-size: @font-size-xsmall;
+            margin:1rem 0 0;
+
+        }
+
+        .aesop-post-adjacent-title {
+            margin:0;
+            display: block;
+        }
+
+        &.previous {
+            text-align: left;
+
+            img {
+                float: left;
+                margin-right:1rem;
+            }
+        }
+
+        &.next {
+            text-align: right;
+            float:right;
+
+            img {
+                float: right;
+                margin-left:1rem;
+            }
+        }
+        &:hover {
+            text-decoration: none;
+        }
+    }
+}
+
+// home grid
+.aesop-story-collection + .aesop-story-collection {
+    margin-bottom:3rem;
+}
+.aesop-story-collection {
+
+    .aesop-story-collection-title {
+        text-align: center;
+        background:@body-bg;
+        color:lighten(@text-color,20);
+        text-transform: uppercase;
+        font-size:1.75rem;
+        line-height: 1.75rem;
+        letter-spacing: 0.05rem;
+        padding:0.8rem 0 0.6rem;
+        margin:0;
+        z-index: 2;
+        position: relative;
+        .box-shadow(0 7px 7px -7px rgba(0,0,0,1.0));
+    }
+
+    .aesop-collection-item {
+        width:25%;
+        float: left;
+        position: relative;
+        height: 400px;
+
+        .aesop-collection-item-link {
+            display: table;
+            height:100%;
+            color:white;
+            .transition(all .25s ease-in-out);
+
+            &:before {
+                position: absolute;
+                content:'';
+                width:100%;
+                height:100%;
+                background: black;
+                .opacity(.65);
+                z-index: 1;
+            }
+
+            &:hover {
+                text-decoration: none;
+                .transition(all .25s ease-in-out);
+                &:before {
+                    .transition(opacity .25s linear);
+                    .opacity(0);
+                }
+                .aesop-collection-item-inner {
+                    background:rgba(0,0,0,0.5);
+                }
+            }
+
+        }
+
+        .aesop-collection-item-inner {
+            display: table-cell;
+            vertical-align: middle;
+            width:100%;
+            height: 100%;
+            padding:0 2.5rem;
+            position: relative;
+            text-align: center;
+            z-index: 1;
+            overflow: hidden;
+            text-shadow:0 0 3px rgba(0,0,0,0.6);
+
+            .aesop-collection-entry-title {
+                font-weight: 800;
+                margin:0 0 0.75rem;
+                text-transform: uppercase;
+            }
+            .aesop-collection-item-excerpt {
+                font-size:@font-size-xsmall;
+            }
+            .aesop-collection-meta {
+                font-family:@font-family-sans-serif;
+                font-size:@font-size-xsmall;
+                margin-bottom:3rem;
+                font-style: italic;
+            }
+        }
+
+        .aesop-collection-item-img {
+            position: absolute;
+            width:100%;
+            height:100%;
+            left:0;
+            z-index: 0;
+            background-position: center center;
+        }
+    }
+
+}
+
+// document
+.aesop-documument-component {
+    margin:1rem auto;
+    a {
+        font-size: @font-size-xsmall;
+        font-family: @font-family-sans-serif;
+        color:lighten(@text-color,15);
+        margin:0;
+        line-height: @font-size-xsmall;
+
+        &:hover {
+            text-decoration: none;
+        }
+
+        span {
+            border-bottom:1px solid @baseContrast;
+            display: inline-block;
+            position: relative;
+            padding-left:13px;
+            padding-bottom:3px;
+            text-transform: uppercase;
+            font-size: @font-size-xsmall - 2;
+            color:lighten(@text-color,30);
+            clear:both;
+            letter-spacing: 0.05em;
+
+            &:before {
+                content:'\f0f6';
+                font-family: FontAwesome;
+                position: absolute;
+                left:0;
+            }
+        }
+    }
+    .aesop-pdf {
+        width:100%;
+        height:900px;
+    }
+}
+
+.aesop-entry-content {
+    padding-bottom:2.5rem;
+}
+.aesop-story-footer {
+    padding:5rem 0;
+    color:fadeout(white,20);
+    .box-shadow(inset 0 0 -6px 6px rgba(0,0,0,0.5));
+    text-shadow:1px 1px rgba(0,0,0,0.5);
+
+    .aesop-content {
+        text-align: center;
+    }
+    h6 {
+        font-weight: bold;
+        margin:0 0 1.2rem;
+    }
+
+    .aesop-story-meta-list {
+        font-size: @font-size-small;
+        font-family: @font-family-sans-serif;
+        .aesop-story-meta-key {
+            font-weight: bold;
+            margin-bottom:0.7rem;
+            display: inline-block;
+            font-size: @font-size-small;
+            letter-spacing: 0.075em;
+            text-transform: uppercase;
+        }
+        li {
+            display: block;
+        }
+    }
+}
+
+.aesop-load-more-posts {
+    text-align: center;
+    margin:0;
+    a {
+        color:white;
+        display: block;
+        width: 100%;
+        padding:1rem;
+        background: #222222;
+        font-size:@font-size-large;
+        font-family: @font-family-sans-serif;
+
+        &:hover {
+            color: white;
+            background: lighten(#222,5);
+            text-decoration: none;
+        }
+    }
+}
+

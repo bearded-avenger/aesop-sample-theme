@@ -1,0 +1,43 @@
+// set padding left to components to make way for timeline
+.has-timeline .aesop-component {
+    
+}
+.aesop-timeline {
+    width:100%;
+    background:darken(@body-bg,1);
+    position: fixed;
+    height: 40px;
+    bottom:0;
+    left:0;
+    right:0;
+    z-index: 99;
+    .opacity(1.0);
+    .transition(opacity .25s ease-in-out);
+    .box-shadow(inset 0 8px 8px -8px rgba(0,0,0,0.4));
+
+    .scroll-nav__list {
+        list-style: none;
+        padding:0;
+        width:100%;
+        max-width: @aesop-width;
+        margin:0 auto;
+        text-align: center;
+
+        li {
+            display: inline-block;
+            margin:0 2rem;
+            position: relative;
+            height:60px;
+            padding-top:10px;
+
+            a {
+                display: block;
+                color:lighten(@text-color,25);
+            }
+
+            &.active a {
+                font-weight: bold;
+            }
+        }
+    }
+}

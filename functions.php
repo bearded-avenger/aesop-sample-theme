@@ -14,32 +14,22 @@ class ASTFunctions {
 		require_once(AST_THEME_DIR.'/inc/aesopmeta.php');
 		require_once(AST_THEME_DIR.'/inc/styles.php');
 
-				// Custom Nav Menus
-		if ( function_exists( 'register_nav_menus' ) ){
-			$this->nav();
-		}
-
-
 		// Run the rest
-		add_action('after_theme_setup', 				array($this,'theme_supports'));
-
-	}
-	function nav(){
-
-		register_nav_menus(
-			array(
-			  'main_nav' => 'Main Nav'
-			)
-		);
+		add_action('after_setup_theme', array($this,'theme_supports'));
 
 	}
 
 	public function theme_supports(){
-		add_theme_support( 'post-thumbnails' );
+	
+		add_theme_support( 'post-thumbnails' );	
+
+		register_nav_menus( array(
+			  'main_nav' => 'Main Nav'
+			)
+		);
+	
 	}
 
 }
+
 new ASTFunctions;
-
-
-
